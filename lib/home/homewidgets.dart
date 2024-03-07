@@ -7,9 +7,7 @@ Widget bookwidget() {
   return Column(
     children: [
       InkWell(
-        onTap: () {
-          Get.to(Takeit());
-        },
+        onTap: () {},
         child: Container(
           height: 180.h,
           width: 130.w,

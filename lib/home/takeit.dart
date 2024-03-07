@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Takeit extends StatelessWidget {
-  const Takeit({super.key});
+  final blist;
+  const Takeit({
+    super.key,
+    required this.blist,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,16 +18,6 @@ class Takeit extends StatelessWidget {
           "Books",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
         ),
-        actions: [
-          Icon(
-            Icons.search,
-            color: Colors.white,
-            size: 26.sp,
-          ),
-          SizedBox(
-            width: 10.w,
-          )
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -37,19 +31,16 @@ class Takeit extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.red,
                 image: DecorationImage(
-                    image: AssetImage("assets/images/Image2.png"),
+                    image: NetworkImage(
+                        "https://covers.openlibrary.org/b/id/${blist[0]['cover_id'] ?? ''}-M.jpg"),
                     fit: BoxFit.cover),
                 borderRadius: BorderRadius.circular(20.r),
               ),
             ),
             Text(
-              "A spark of Light",
+              "${blist[0]['title']}",
               style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
             ),
-            Text(
-              "Jodi Picoult",
-              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
-            ),
             SizedBox(
               height: 10.h,
             ),
@@ -57,25 +48,7 @@ class Takeit extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Rating :",
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                  ),
-                ),
-                SizedBox(
-                  width: 5.w,
-                ),
-                Text("⭐ ⭐ ⭐ ⭐")
-              ],
-            ),
-            SizedBox(
-              height: 10.h,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Category :",
+                  "Auther Name:",
                   style: TextStyle(
                     fontSize: 16.sp,
                   ),
@@ -84,10 +57,17 @@ class Takeit extends StatelessWidget {
                   width: 5.w,
                 ),
                 Text(
-                  "Fantasy",
+                  "${blist[0]['author_names'][0]}",
                   style: TextStyle(fontSize: 16.sp),
                 )
               ],
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+            Text(
+              "${blist[0]['first_publish_year']}",
+              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
             ),
             SizedBox(
               height: 10.h,

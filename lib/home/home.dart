@@ -117,7 +117,10 @@ class Home extends StatelessWidget {
                                 children: [
                                   InkWell(
                                     onTap: () {
-                                      Get.to(() => Takeit());
+                                      Get.to(() => Takeit(blist: [
+                                            homecontroller.booklist[index]
+                                                ['work']
+                                          ]));
                                     },
                                     child: Container(
                                       height: 180.h,
@@ -143,8 +146,7 @@ class Home extends StatelessWidget {
                                   ),
                                   Text(
                                     homecontroller.booklist[index]['work']
-                                                ['first_publish_year']
-                                            .toString() ??
+                                            ['author_names'][0] ??
                                         '',
                                     style: TextStyle(fontSize: 12.sp),
                                   ),
@@ -200,88 +202,9 @@ class Home extends StatelessWidget {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    Get.to(() => Takeit());
-                                  },
-                                  child: Container(
-                                    height: 180.h,
-                                    width: 130.w,
-                                    decoration: BoxDecoration(
-                                      color: Colors.red,
-                                      image: DecorationImage(
-                                          image: NetworkImage(
-                                              "https://covers.openlibrary.org/b/id/${homecontroller.booklist[index]['work']['cover_id'] ?? ''}-M.jpg"),
-                                          fit: BoxFit.cover),
-                                      borderRadius: BorderRadius.circular(20.r),
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  homecontroller.booklist[index]['work']
-                                          ['title'] ??
-                                      '',
-                                  style: TextStyle(
-                                      fontSize: 13.sp,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                                Text(
-                                  homecontroller.booklist[index]['work']
-                                              ['first_publish_year']
-                                          .toString() ??
-                                      '',
-                                  style: TextStyle(fontSize: 12.sp),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          "Wishlist",
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 97, 210, 101),
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.w500),
-                        ),
-                        Text(
-                          "(3)",
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 97, 210, 101),
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.w500),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      height: 250.h,
-                      child: ListView.builder(
-                        itemCount: homecontroller.booklist.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          // print(homecontroller.booklist);
-                          var book = homecontroller.booklist[index];
-
-                          // log(book.toString());
-                          return Padding(
-                            padding: const EdgeInsets.only(left: 10, top: 10),
-                            child: Column(
-                              children: [
-                                InkWell(
-                                  onTap: () {
-                                    Get.to(() => Takeit());
+                                    // Get.to(() => Takeit(
+                                    //       blist: homecontroller.booklist[index],
+                                    //     ));
                                   },
                                   child: Container(
                                     height: 180.h,
