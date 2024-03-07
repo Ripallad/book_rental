@@ -1,4 +1,4 @@
-import 'package:book_rental/authentication/authcontroller.dart';
+import 'package:book_rental/controller/authcontroller.dart';
 import 'package:book_rental/authentication/otp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,8 +9,8 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final auth = Get.put(Authcontroller());
-    var name = TextEditingController();
+    // final auth = Get.put(Authcontroller());
+    // final TextEditingController text = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 97, 210, 101),
@@ -66,7 +66,16 @@ class Login extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Get.to(() => Otp());
+              // if (auth.home == '') {
+              //   ScaffoldMessenger.of(context).showSnackBar(
+              //       SnackBar(content: Text("Please Enter mobile no")));
+              // }
+              // if (auth.length < 10) {
+              //   ScaffoldMessenger.of(context).showSnackBar(
+              //       SnackBar(content: Text("Please Enter 10 Digit no")));
+              // } else {
+              //   authcontroller.PhoneAuth("+91", controller.text, context);
+              // }
             },
             child: Container(
               height: 50.h,

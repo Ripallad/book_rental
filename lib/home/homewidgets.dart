@@ -44,12 +44,12 @@ Widget categorywidget(assetimage, text) {
           fit: BoxFit.cover,
         ),
         color: Colors.red,
-        borderRadius: BorderRadius.circular(15)),
+        borderRadius: BorderRadius.circular(15.r)),
     child: Center(
         child: Text(
       text,
       style: TextStyle(
-          color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
+          color: Colors.white, fontSize: 20.sp, fontWeight: FontWeight.w500),
     )),
   );
 }
